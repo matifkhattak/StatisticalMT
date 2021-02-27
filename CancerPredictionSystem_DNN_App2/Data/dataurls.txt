@@ -1,0 +1,2 @@
+training data: http://ftp.mcs.anl.gov/pub/candle/public/benchmarks/P1B2/P1B2.train.csv
+test data:     http://ftp.mcs.anl.gov/pub/candle/public/benchmarks/P1B2/P1B2.test.csv

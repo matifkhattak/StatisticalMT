@@ -1,0 +1,14 @@
+Origional:
+=========
+C:\Users\faqeerrehman\MSU\Research\CancerPrediction\ScientificSWTesting\Pilot1\P1B2Tests\Results\PerClassOutputs\20Epochs\Orgional\Origional.xls
+C:\Users\faqeerrehman\MSU\Research\CancerPrediction\ScientificSWTesting\Pilot1\P1B2Tests\Results\PerClassOutputs\20Epochs\ExcelProcesser\ProcessedResults\Origional\Origional.xls
+
+MR0:
+==
+C:\Users\faqeerrehman\MSU\Research\CancerPrediction\ScientificSWTesting\Pilot1\P1B2Tests\Results\PerClassOutputs\20Epochs\MR0\MR00.xls
+C:\Users\faqeerrehman\MSU\Research\CancerPrediction\ScientificSWTesting\Pilot1\P1B2Tests\Results\PerClassOutputs\20Epochs\ExcelProcesser\ProcessedResults\MR0
+
+
+MR00_ProbabilityOrigionalPredictedClass.xls
+
+
