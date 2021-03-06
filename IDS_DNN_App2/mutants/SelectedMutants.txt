@@ -1,0 +1,24 @@
+===Mutant1:===
+
+numberOfIndepdendentFeatures = 42
+
+TO
+
+numberOfIndepdendentFeatures = 22
+
+
+=====Mutant2=====
+if total_loss is None:
+            total_loss = loss_weight * output_loss
+
+To 
+
+if total_loss is None:
+            total_loss = loss_weight / output_loss
+
+=====Mutant3=====
+X /= norms[:, np.newaxis]
+
+To
+
+ X *= norms[:, np.newaxis]
