@@ -28,30 +28,38 @@ def get_p1_file(link):
     fname = os.path.basename(link)
     return get_file(fname, origin=link, cache_subdir='Pilot1')
 
-
 def load_dataDNN3(trainingRowsShuffle=False,testRowsShuffle=False, n_cols=None):
-    train_path = '/Data/researchPaperTrain.csv'  # train.csv
-    test_path = '/Data/researchPaperTest.csv'  # test.csv
+    train_path = 'C:/Users/faqeerrehman/MSU/OneDrive - Montana State University/CourseWork/SecondSemester/MachineLearning/CourseProject/IntrustionDetectionSystem/Pilot1/P1B2Tests/Data/researchPaperTrain.csv'  # train.csv
+    test_path = 'C:/Users/faqeerrehman/MSU/OneDrive - Montana State University/CourseWork/SecondSemester/MachineLearning/CourseProject/IntrustionDetectionSystem/Pilot1/P1B2Tests/Data/researchPaperTest.csv'  # test.csv
+    smallTestDataset_path = 'C:/Users/faqeerrehman/MSU/OneDrive - Montana State University/CourseWork/SecondSemester/MachineLearning/CourseProject/IntrustionDetectionSystem/Pilot1/P1B2Tests/Data/researchPaperSmallTest.csv'  # test.csv
 
     traindata = pd.read_csv(train_path, header=None, engine='c')
     testdata = pd.read_csv(test_path, header=None, engine='c')
-
-    X = traindata.iloc[:, 1:42]  # traindata.iloc[:,1:42]
-    T = testdata.iloc[:, 1:42]  # testdata.iloc[:,1:42]
+    smalltestdata = pd.read_csv(smallTestDataset_path, header=None, engine='c')
+    numberOfIndepdendentFeatures = 42
+    X = traindata.iloc[:, 1:numberOfIndepdendentFeatures]  # traindata.iloc[:,1:42]
+    Y = traindata.iloc[:, 0]
+    C = testdata.iloc[:, 0]
+    T = testdata.iloc[:, 1:numberOfIndepdendentFeatures]  # testdata.iloc[:,1:42]
+    smallDataC = smalltestdata.iloc[:, 0]
+    smallDataT = smalltestdata.iloc[:, 1:42]  # smalltestdata.iloc[:, 1:42]
 
     scaler = Normalizer().fit(X)
     trainX = scaler.transform(X)
 
     scaler = Normalizer().fit(T)
     testT = scaler.transform(T)
+    smallDataTestT = scaler.transform(smallDataT)
 
     y_train = pd.get_dummies(traindata.iloc[:, 0]).as_matrix()
     y_test = pd.get_dummies(testdata.iloc[:, 0]).as_matrix()
+    y_SmallDataTest = pd.get_dummies(smalltestdata.iloc[:, 0]).as_matrix()
 
     X_train = np.array(trainX)
     X_test = np.array(testT)
+    X_SmallDataTest = np.array(smallDataTestT)
 
-    return (X_train, y_train), (X_test, y_test)
+    return (X_train, y_train), (X_test, y_test), (X_SmallDataTest,y_SmallDataTest)
 
 
 def evaluateAccuracy(y_pred, y_test):
